@@ -102,8 +102,37 @@ function checkCollision() {
 
 function gameLoop() {
   if (gameOver) {
-    gameOverScreen.css("display", "block");
+    gameOverScreen.html(`
+      <h1>Game Over</h1>
+      <p>Score: ${score}</p>
+      <p>Level: ${level}</p>
+      <button id="restartButton">Restart</button>
+      <button id="quitButton">Quit</button>
+    `);
+
     gameArea.css("animation", "none");
+
+    $("#restartButton").click(function () {
+      gameOver = false;
+      score = 0;
+      level = 1;
+      obstacleSpeed = 5;
+      obstacles.forEach((obstacle) => obstacle.remove());
+      obstacles = [];
+
+      scoreBoard.text(`Score: ${score}`);
+      levelLabel.text(`Level: ${level}`);
+      gameOverScreen.css("display", "none");
+      gameArea.css("animation", "scrollRoad 4s linear infinite");
+
+      gameLoop();
+    });
+
+    $("#quitButton").click(function () {
+      window.location.href = "/index.html";
+    });
+
+    gameOverScreen.css("display", "block");
     return;
   }
 
@@ -112,6 +141,22 @@ function gameLoop() {
 
   requestAnimationFrame(gameLoop);
 }
+
+$("#restartButton").click(function () {
+  gameOver = false;
+  score = 0;
+  level = 1;
+  obstacleSpeed = 5;
+  obstacles.forEach((obstacle) => obstacle.remove());
+  obstacles = [];
+
+  scoreBoard.text(`Score: ${score}`);
+  levelLabel.text(`Level: ${level}`);
+  gameOverScreen.css("display", "none");
+  gameArea.css("animation", "scrollRoad 4s linear infinite");
+
+  gameLoop();
+});
 
 setInterval(createObstacle, 1000);
 gameLoop();

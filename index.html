@@ -3,85 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2D Car Game</title>
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        font-family: Arial, sans-serif;
-        background: url('/assert/city.jpg') no-repeat center center; /* Add city image */
-        background-size: cover;
-      }
-      #gameArea {
-        position: relative;
-        margin: 0 auto;
-        width: 25vw;
-        height: 100vh;
-        background: url('/assert/road\ .png') repeat-y center top;
-        background-size: cover;
-        overflow: hidden;
-        animation: scrollRoad 4s linear infinite;
-      }
-
-
-      @keyframes scrollRoad {
-        from {
-          background-position: center 0;
-        }
-        to {
-          background-position: center 100vh;
-        }
-      }
-
-      #playerCar {
-        position: absolute;
-        bottom: 20px;
-        width: 50px;
-        height: 100px;
-        background: url(/assert/redcar.png);
-        background-size: cover;
-      }
-      .obstacle {
-        position: absolute;
-        width: 50px;
-        height: 100px;
-        background: url(/assert/yellocar.png);
-        background-size: cover;
-      }
-      #scoreBoard {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        color: white;
-        font-size: 20px;
-      }
-      #gameOverScreen {
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: black;
-        font-size: 48px;
-        font-weight: bold;
-      }
-      #levelLabel {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        color: white;
-        font-size: 20px;
-      }
-    </style>
+    <title>Car Racing Game</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <div id="gameArea">
-      <div id="playerCar"></div>
-      <div id="levelLabel">Level: 1</div>
-      <div id="scoreBoard">Score: 0</div>
-      <div id="gameOverScreen">Game Over</div>
+    <div class="start-screen">
+      <h1>Rally Rivals</h1>
+
+      <div class="car-image"></div>
+
+      <a href="/pages/game.html" class="start-button">Start</a>
+
+      <div class="instructions">
+        <h2>How to Play</h2>
+        <ul>
+          <li>Use arrow keys to control the car</li>
+          <li>Avoid hitting other vehicles</li>
+          <li>Score points by surviving longer</li>
+        </ul>
+      </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/JS/game.js"></script>
   </body>
 </html>
