@@ -11,7 +11,7 @@ body {
   width: 25vw;
   height: 100vh;
   background: url("/assert/road\ .png") repeat-y center top;
-  background-size: contain;
+  background-size: cover;
   overflow: hidden;
   animation: scrollRoad 4s linear infinite;
 }
