@@ -2,11 +2,13 @@ const gameArea = $("#gameArea");
 const playerCar = $("#playerCar");
 const scoreBoard = $("#scoreBoard");
 const gameOverScreen = $("#gameOverScreen");
+const levelLabel = $("#levelLabel");
 
+let level = 1;
 let carWidth = 50,
   carHeight = 100;
 let carX = gameArea.width() / 2 - carWidth / 2;
-let carY = gameArea.height() - carHeight - 20; 
+let carY = gameArea.height() - carHeight - 20;
 let carSpeed = 10;
 
 let obstacles = [];
@@ -27,7 +29,7 @@ $(document).keydown(function (event) {
   } else if (event.key === "ArrowUp" && carY > 0) {
     carY -= carSpeed;
     if (carY < 0) {
-      carY =gameArea.height() - carHeight - 20;
+      carY = gameArea.height() - carHeight - 20;
     }
   }
 
@@ -63,6 +65,20 @@ function moveObstacles() {
       obstacles.splice(i, 1);
       score++;
       scoreBoard.text(`Score: ${score}`);
+
+      if (score === 10) {
+        level = 2;
+        levelLabel.text(`Level: ${level}`);
+        obstacleSpeed += 2;
+      } else if (score === 20) {
+        level = 3;
+        levelLabel.text(`Level: ${level}`);
+        obstacleSpeed += 2;
+      } else if (score === 30) {
+        level = 4;
+        levelLabel.text(`Level: ${level}`);
+        obstacleSpeed += 2;
+      }
     }
   }
 }
