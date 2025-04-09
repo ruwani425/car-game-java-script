@@ -103,6 +103,7 @@ function checkCollision() {
 function gameLoop() {
   if (gameOver) {
     gameOverScreen.css("display", "block");
+    gameArea.css("animation", "none");
     return;
   }
 
