@@ -5,7 +5,8 @@ const gameOverScreen = $("#gameOverScreen");
 
 let carWidth = 50,
   carHeight = 100;
-let carX =gameArea.width() / 2 - carWidth / 2;
+let carX = gameArea.width() / 2 - carWidth / 2;
+let carY = gameArea.height() - carHeight - 20; 
 let carSpeed = 10;
 
 let obstacles = [];
@@ -17,15 +18,23 @@ let score = 0;
 let gameOver = false;
 
 $(document).keydown(function (event) {
+  if (gameOver) return;
+
   if (event.key === "ArrowLeft" && carX > 0) {
     carX -= carSpeed;
-  } else if (
-    event.key === "ArrowRight" &&
-    carX < gameArea.width() - carWidth
-  ) {
+  } else if (event.key === "ArrowRight" && carX < gameArea.width() - carWidth) {
     carX += carSpeed;
+  } else if (event.key === "ArrowUp" && carY > 0) {
+    carY -= carSpeed;
+    if (carY < 0) {
+      carY =gameArea.height() - carHeight - 20;
+    }
   }
-  playerCar.css("left", carX + "px");
+
+  playerCar.css({
+    left: carX + "px",
+    top: carY + "px",
+  });
 });
 
 function createObstacle() {
