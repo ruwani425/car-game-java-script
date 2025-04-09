@@ -32,6 +32,7 @@ body {
   height: 100px;
   background: url(/assert/redcar.png);
   background-size: cover;
+  z-index: 1;
 }
 .obstacle {
   position: absolute;
@@ -39,6 +40,7 @@ body {
   height: 100px;
   background: url(/assert/yellocar.png);
   background-size: cover;
+  z-index: 1;
 }
 #scoreBoard {
   position: absolute;
@@ -59,6 +61,7 @@ body {
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 10;
 }
 
 #gameOverScreen h1 {
