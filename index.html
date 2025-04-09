@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Car Game</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    #gameArea {
+      position: relative;
+      margin: 0 auto;
+      width: 25vw;
+      height: 100vh;
+      background: #87CEEB; 
+      overflow: hidden;
+    }
+    #playerCar {
+      position: absolute;
+      bottom: 20px;
+      width: 50px;
+      height: 100px;
+      background: red;
+    }
+    .obstacle {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: black;
+    }
+    #scoreBoard {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 20px;
+    }
+    #gameOverScreen {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-size: 48px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameArea">
+    <div id="playerCar"></div>
+    <div id="scoreBoard">Score: 0</div>
+    <div id="gameOverScreen">Game Over</div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/JS/game.js"></script>
+</body>
+</html>
